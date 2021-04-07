@@ -19,6 +19,9 @@ library(thematic)
 
 passat <- read_excel("passat.xlsx")
 
+minPrice <- floor(min(passat$price)/1000)*1000
+maxPrice <- ceiling(max(passat$price)/1000)*1000
+
 # Define UI for application that draws a histogram
 ui <- fluidPage(
     theme = shinytheme("darkly"),
@@ -50,9 +53,9 @@ ui <- fluidPage(
                   tabsetPanel(id = "tabs",
                               tabPanel("Bil Priser",
                                        sliderInput(inputId = "slider_pris", 
-                                                   label = "Vælg pris", min = floor(min(passat$price)/1000)*1000,
-                                                   max = ceiling(max(passat$price)/1000)*1000,
-                                                   value = c(floor(min(passat$price)/1000)*1000,ceiling(max(passat$price)/1000)*1000), step = 1000,
+                                                   label = "Vælg pris", min = minPrice,
+                                                   max = maxPrice,
+                                                   value = c(minPrice,maxPrice), step = 1000,
                                                    round = TRUE, ticks = TRUE),
                                        dataTableOutput("price_table")),
                               tabPanel("Bil specs",
