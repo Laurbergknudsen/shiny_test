@@ -1,0 +1,12 @@
+name: shiny_test2
+title: shiny_test2
+username:
+account: laurberg
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3922415
+bundleId: 4441428
+url: https://laurberg.shinyapps.io/shiny_test2/
+when: 1617792830.33052
+asMultiple: FALSE
+asStatic: FALSE
