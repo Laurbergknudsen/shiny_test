@@ -163,13 +163,13 @@ server <- function(input, output, session) {
     busTableValues$ny <- data
     
     
-    sheet_append("*", newRow, sheet = 1)
+    sheet_append(Sys.getenv("google_sheet1"), newRow, sheet = 1)
     
   })
   
   df <- eventReactive(input$indlæs, {
     
-    # read_sheet("https://docs.google.com/spreadsheets/*/edit#gid=0", range = "driver")
+    read_sheet(paste0("https://docs.google.com/spreadsheets/",Sys.getenv("google_sheet1"),"/edit#gid=0"), range = "driver")
     
   })
   
